@@ -22,25 +22,26 @@ int main() {
 	};
 	const int study_size = sizeof(study_children) / sizeof(study_children[0]);
 
-	EAbrakhin::MenuItem study = { "1 - Математика", EAbrakhin::study };
+	EAbrakhin::MenuItem study = { "1 - Математика", EAbrakhin::show_menu, study_children, study_size };
 	EAbrakhin::MenuItem exit = { "0 - Выход", EAbrakhin::exit };
 
 	EAbrakhin::MenuItem* main_children[] = { &exit, &study };
 	const int main_size = sizeof(main_children) / sizeof(main_children[0]);
 
-	int user_input;
+	EAbrakhin::MenuItem main = { nullptr, EAbrakhin::show_menu, main_children, main_size };
+
+	study_go_back.parent = &study;
+	study_summ.parent = &study;
+	study_substract.parent = &study;
+	study_multiply.parent = &study;
+	study_divide.parent = &study;
+
+	study.parent = &main;
+	exit.parent = &main;
+
+	const EAbrakhin::MenuItem* current = &main;
 	do {
-		std::cout << "Hi!" << std::endl;
-		for (int i = 1; i < main_size; ++i) {
-			std::cout << main_children[i]->title << std::endl;
-		}
-		std::cout << main_children[0]->title << std::endl;
-		std::cout << "Обучайка > ";
-
-		std::cin >> user_input;
-		main_children[user_input]->func();
-
-		std::cout << std::endl;
+		current = current->func(current);
 	} while (true);
 
 	return 0;
