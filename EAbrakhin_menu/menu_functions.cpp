@@ -23,33 +23,44 @@ namespace EAbrakhin {
 		std::exit(0);
 	}
 
-	const MenuItem* study_summ(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
-		return current->parent;
-	};
-
-	const MenuItem* study_substract(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
-		return current->parent;
-	};
-
-	const MenuItem* study_multiply(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
-		return current->parent;
-	};
-
-	const MenuItem* study_divide(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
-		return current->parent;
-	};
-
-	const MenuItem* study_go_back(const MenuItem* current) {
-		
+	const MenuItem* go_back(const MenuItem* current) {
 		std::cout << current->title << std::endl << std::endl;
 		return current->parent->parent;
 	};
+
+	const MenuItem* algebra_summ(const MenuItem* current) {
+		
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	};
+
+	const MenuItem* algebra_substract(const MenuItem* current) {
+		
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	};
+
+	const MenuItem* algebra_multiply(const MenuItem* current) {
+		
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	};
+
+	const MenuItem* algebra_divide(const MenuItem* current) {
+		
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	};
+
+	const MenuItem* mathematical_analysis_differentiation(const MenuItem* current) {
+
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	}
+
+	const MenuItem* mathematical_analysis_integration(const MenuItem* current) {
+
+		std::cout << current->title << std::endl << std::endl;
+		return current->parent;
+	}
 }
