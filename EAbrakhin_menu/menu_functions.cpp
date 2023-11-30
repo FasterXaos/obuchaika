@@ -2,6 +2,13 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <random>
+
+namespace {
+	static const char SPACE = ' ';
+
+	bool example(int x, int y, int ans, char op);
+}
 
 namespace EAbrakhin {
 	const MenuItem* show_menu(const MenuItem* current) {
@@ -29,38 +36,87 @@ namespace EAbrakhin {
 	};
 
 	const MenuItem* algebra_summ(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
+		std::mt19937 mt(time(0));
+
+		bool exit;
+		do {
+			int first_val = mt() % 100, second_val = mt() % 100;
+			exit = example(first_val, second_val, first_val + second_val, '+');
+		} while (!exit);
+		std::cout << std::endl;
+
 		return current->parent;
 	};
 
 	const MenuItem* algebra_substract(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
+		std::mt19937 mt(time(0));
+
+		bool exit;
+		do {
+			int first_val = mt() % 100, second_val = mt() % 100;
+			exit = example(first_val, second_val, first_val - second_val, '-');
+		} while (!exit);
+		std::cout << std::endl;
+
 		return current->parent;
 	};
 
 	const MenuItem* algebra_multiply(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
+		std::mt19937 mt(time(0));
+
+		bool exit;
+		do {
+			int first_val = mt() % 100, second_val = mt() % 100;
+			exit = example(first_val, second_val, first_val * second_val, '*');
+		} while (!exit);
+		std::cout << std::endl;
+
 		return current->parent;
 	};
 
 	const MenuItem* algebra_divide(const MenuItem* current) {
-		
-		std::cout << current->title << std::endl << std::endl;
+		std::mt19937 mt(time(0));
+
+		bool exit;
+		do {
+			int first_val = mt() % 100;
+			int second_val = (mt() % 99) + 1;
+			exit = example(first_val, second_val, first_val / second_val, '/');
+		} while (!exit);
+		std::cout << std::endl;
+
 		return current->parent;
 	};
 
-	const MenuItem* mathematical_analysis_differentiation(const MenuItem* current) {
+	const MenuItem* mathan_differentiation(const MenuItem* current) {
 
 		std::cout << current->title << std::endl << std::endl;
 		return current->parent;
 	}
 
-	const MenuItem* mathematical_analysis_integration(const MenuItem* current) {
+	const MenuItem* mathan_integration(const MenuItem* current) {
 
 		std::cout << current->title << std::endl << std::endl;
 		return current->parent;
+	}
+}
+
+namespace {
+	bool example(int x, int y, int ans, char op) {
+		int user_ansver;
+		do {
+			std::cout << "н - Назад" << std::endl;
+			std::cout << x << SPACE << op << SPACE << y << " = ";
+			std::cin >> user_ansver;
+
+			if (std::cin.fail()) {
+				std::cin.clear();
+				std::cin.ignore(32767, '\n');
+				return true;
+			}
+			std::cout << ((user_ansver == ans) ? "Верно" : "Неверно") << std::endl << std::endl;
+		} while (user_ansver != ans);
+
+		return false;
 	}
 }

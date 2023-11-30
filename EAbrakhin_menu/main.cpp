@@ -1,4 +1,4 @@
-#include <clocale>
+﻿#include <clocale>
 #include <iostream>
 
 #include "menu.hpp"

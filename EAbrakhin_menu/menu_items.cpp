@@ -65,9 +65,9 @@ const EAbrakhin::MenuItem EAbrakhin::ALGEBRA_GO_BACK = {
 
 namespace {
 	const EAbrakhin::MenuItem* mathematical_analysis_children[] = {
-		&EAbrakhin::MATHEMATICAL_ANALYSIS_GO_BACK,
-		&EAbrakhin::MATHEMATICAL_ANALYSIS_DIFFERENTIATION,
-		&EAbrakhin::MATHEMATICAL_ANALYSIS_INTEGRATION
+		&EAbrakhin::MATHAN_GO_BACK,
+		&EAbrakhin::MATHAN_DIFFERENTIATION,
+		&EAbrakhin::MATHAN_INTEGRATION
 	};
 	const int mathematical_analysis_size = sizeof(mathematical_analysis_children) / sizeof(mathematical_analysis_children[0]);
 }
@@ -76,12 +76,12 @@ const EAbrakhin::MenuItem EAbrakhin::MATHEMATICAL_ANALYSIS = {
 	"2 - Математический анализ", EAbrakhin::show_menu, &EAbrakhin::STUDY, mathematical_analysis_children, mathematical_analysis_size
 };
 
-const EAbrakhin::MenuItem EAbrakhin::MATHEMATICAL_ANALYSIS_DIFFERENTIATION = {
-	"1 - Дифференцировать", EAbrakhin::mathematical_analysis_differentiation, &EAbrakhin::MATHEMATICAL_ANALYSIS
+const EAbrakhin::MenuItem EAbrakhin::MATHAN_DIFFERENTIATION = {
+	"1 - Дифференцировать", EAbrakhin::mathan_differentiation, &EAbrakhin::MATHEMATICAL_ANALYSIS
 };
-const EAbrakhin::MenuItem EAbrakhin::MATHEMATICAL_ANALYSIS_INTEGRATION = {
-	"2 - Интегрировать", EAbrakhin::mathematical_analysis_integration, &EAbrakhin::MATHEMATICAL_ANALYSIS
+const EAbrakhin::MenuItem EAbrakhin::MATHAN_INTEGRATION = {
+	"2 - Интегрировать", EAbrakhin::mathan_integration, &EAbrakhin::MATHEMATICAL_ANALYSIS
 };
-const EAbrakhin::MenuItem EAbrakhin::MATHEMATICAL_ANALYSIS_GO_BACK = {
+const EAbrakhin::MenuItem EAbrakhin::MATHAN_GO_BACK = {
 	"0 - Назад", EAbrakhin::go_back, &EAbrakhin::MATHEMATICAL_ANALYSIS
 };

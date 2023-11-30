@@ -14,6 +14,6 @@ namespace EAbrakhin {
 	const MenuItem* algebra_multiply(const MenuItem* current);
 	const MenuItem* algebra_divide(const MenuItem* current);
 
-	const MenuItem* mathematical_analysis_differentiation(const MenuItem* current);
-	const MenuItem* mathematical_analysis_integration(const MenuItem* current);
+	const MenuItem* mathan_differentiation(const MenuItem* current);
+	const MenuItem* mathan_integration(const MenuItem* current);
 }
